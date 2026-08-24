@@ -103,6 +103,20 @@ class Engine:
             scorer.score_all(context.findings)  # mutates in-place, returns same list sorted
         logger.info(f"Scored {len(context.findings)} findings")
 
+        # Always build the final report, regardless of why the loop stopped
+        # (explicit "report" signal, "stop" signal, or max_iterations reached).
+        # Without this, context.report stays {} even after a full run.
+        report_skill = self.registry.get("report")
+        if report_skill:
+            try:
+                context = self._execute_skill(report_skill, context)
+                logger.info("Report generated")
+            except Exception as e:
+                logger.error(f"Report generation failed: {str(e)}", exc_info=True)
+                context.add_error("report", str(e))
+        else:
+            logger.warning("No 'report' skill registered — context.report left empty")
+
         return context
 
     # -----------------------------

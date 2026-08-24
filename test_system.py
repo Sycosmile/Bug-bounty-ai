@@ -63,6 +63,7 @@ def test_context():
     
     try:
         from core.context import Context
+        from core.models import Finding, Severity, FindingCategory
         
         ctx = Context("example.com")
         print(f"✓ Context created: {ctx}")
@@ -73,7 +74,16 @@ def test_context():
         
         # Test adding data
         ctx.subdomains.append("www.example.com")
-        ctx.findings.append("Test finding")
+        # findings must always be Finding instances (see Context.findings
+        # docstring) — a raw string breaks any code that reads f.is_verified,
+        # f.effective_severity, etc.
+        ctx.findings.append(Finding(
+            title="Test finding",
+            severity=Severity.LOW,
+            category=FindingCategory.MISCONFIGURED,
+            source="test_system",
+            target=ctx.target,
+        ))
         ctx.add_error("test_skill", "Test error")
         ctx.add_execution("test_skill", 1.5, True)
         
