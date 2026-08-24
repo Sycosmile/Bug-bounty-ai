@@ -7,8 +7,9 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Kali%20Linux-purple?style=flat-square&logo=linux)](https://kali.org)
-[![Last Commit](https://img.shields.io/github/last-commit/Sycosmile/bug-bounty-ai?style=flat-square)](https://github.com/Sycosmile/bug-bounty-ai/commits)
-[![Stars](https://img.shields.io/github/stars/Sycosmile/bug-bounty-ai?style=flat-square)](https://github.com/Sycosmile/bug-bounty-ai/stargazers)
+[![Tests](https://img.shields.io/badge/tests-7%2F7%20passing-brightgreen?style=flat-square)](./test_system.py)
+[![Last Commit](https://img.shields.io/github/last-commit/Sycosmile/Bug-bounty-ai?style=flat-square)](https://github.com/Sycosmile/Bug-bounty-ai/commits)
+[![Stars](https://img.shields.io/github/stars/Sycosmile/Bug-bounty-ai?style=flat-square)](https://github.com/Sycosmile/Bug-bounty-ai/stargazers)
 
 > ⚠️ **Authorized use only.** Only test targets you have explicit permission to assess. Unauthorized use violates the Nigeria Cybercrimes Act 2015 and equivalent laws worldwide.
 
@@ -56,8 +57,8 @@ It's not a replacement for these tools. It **orchestrates** them.
 ### Install
 
 ```bash
-git clone https://github.com/Sycosmile/bug-bounty-ai.git
-cd bug-bounty-ai
+git clone https://github.com/Sycosmile/Bug-bounty-ai.git
+cd Bug-bounty-ai
 pip install -r requirements.txt
 cp .env.example .env
 ```
